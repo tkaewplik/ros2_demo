@@ -59,3 +59,15 @@ $ ros2 topic pub -r 10 /robot_news example_interfaces/msg/String "{data: 'hello 
 $ ros2 run my_cpp_pkg robot_news_station --ros-args -r robot_news:=my_new_topic
 $ ros2 run my_cpp_pkg smartphone --ros-args -r robot_news:=my_new_topic
 ```
+
+## See services
+```bash
+$ ros2 service list
+$ ros2 service show <service_name>
+```
+
+## Run service
+```bash
+# note: you have to spare the space between : and number unless it is going to error
+$ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 10, b: 5}"
+```
