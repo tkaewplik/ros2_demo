@@ -1,5 +1,9 @@
 # ros2_demo
 
+## Tutorial
+https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html
+
+
 ## Build
 ```bash
 $ colcon build --packages-select my_cpp_pkg
@@ -8,6 +12,7 @@ $ colcon build --packages-select my_cpp_pkg
 
 ## Execute
 ```bash
+$ source install/local_setup.bash
 $ ros2 run my_cpp_pkg cpp_node
 ```
 ## RENAME
@@ -21,7 +26,7 @@ $ ros2 pkg create --build-type ament_cmake --node-name my_node my_package
 ```
 
 ## Rqt and rtq_graph
-this is a tool to see the relation between the node and so on using graph UI. (maybe made from QT... library). you can run it at the same time your run your nodes in order to debuging.
+this is a tool to see the relation between the node and so on using graph UI. (maybe made from QT... library). you can run it at the same time your run your nodes in order to debuging. Also, `rqt` can be used to call service so you don't have to run the command manually in the terminal.
 
 ## Turtlesim
 run a waling turtle program for using as controlling turtle by ros
@@ -71,3 +76,12 @@ $ ros2 service show <service_name>
 # note: you have to spare the space between : and number unless it is going to error
 $ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 10, b: 5}"
 ```
+
+## rqt_console
+to debug the log from ros2
+```bash
+$ ros2 run rqt_console rqt_console
+```
+
+## bag
+this is the record of your published data, so you can replay it later. to find the problem for  example.
