@@ -104,3 +104,19 @@ and that one can be changed by using `ros2 param set` command in real time.
 when you would like to launch multiple nodes, you can use `ros2 launch` command.
 please check `launch/cpp_parameters_launch.py` as an example.
 and you can change the parameter in the launch file.
+
+# ros2 pluginlib
+plugin is a way to load a code dynamically at runtime. 
+you have to create a virtual base class first in order to use plugin
+create the class loader or instance loader that bind the virtual class
+```cpp
+// initialize the class loader
+pluginlib::ClassLoader<polygon_base::RegularPolygon> poly_loader(
+    "polygon_base",
+    "polygon_base::RegularPolygon"
+);
+
+// load plugin or the instance from the class loader, this class can not have a arguments in constructor if you need to pass arugment, you have to use initialize() method.
+std::shared_ptr<polygon_base::RegularPolygon> square =
+      poly_loader.createSharedInstance("polygon_plugins::Square");
+```
