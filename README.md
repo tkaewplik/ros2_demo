@@ -85,3 +85,22 @@ $ ros2 run rqt_console rqt_console
 
 ## bag
 this is the record of your published data, so you can replay it later. to find the problem for  example.
+
+## msg and srv
+message and service inteface can be created by writing a file in `.msg` and `.srv` extension. then you have to add the `rosidl_default_generators` to the buildtool_depend and `rosidl_default_runtime` to the exec_depend in `package.xml`. finally, you have to add the `rosidl_interface_packages` to the member_of_group.
+
+with this setup, you can use your custom message and service in your package.
+please check `src/tutorial_interfaces/msg/Num.msg` and `src/tutorial_interfaces/srv/AddThreeInts.srv` as an example.
+
+# ros2 doctor
+this command is used to check the health of your ros2 installation and find the problem.
+
+# ros2 param
+you can use this command to see the parameter of the node.
+when create a node you can declare a parameter in the constructor of the node.
+and that one can be changed by using `ros2 param set` command in real time.
+
+# ros2 launch
+when you would like to launch multiple nodes, you can use `ros2 launch` command.
+please check `launch/cpp_parameters_launch.py` as an example.
+and you can change the parameter in the launch file.

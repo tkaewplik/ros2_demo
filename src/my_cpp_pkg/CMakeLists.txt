@@ -8,6 +8,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(tutorial_interfaces REQUIRED)
 find_package(example_interfaces REQUIRED)
 
 add_executable(cpp_node src/my_first_node.cpp)
@@ -20,10 +21,10 @@ add_executable(smartphone src/smartphone.cpp)
 ament_target_dependencies(smartphone rclcpp example_interfaces)
 
 add_executable(add_two_ints_server src/add_two_ints_server.cpp)
-ament_target_dependencies(add_two_ints_server rclcpp example_interfaces)
+ament_target_dependencies(add_two_ints_server rclcpp tutorial_interfaces)
 
 add_executable(add_two_ints_client_no_oop src/add_two_ints_client_no_oop.cpp)
-ament_target_dependencies(add_two_ints_client_no_oop rclcpp example_interfaces)
+ament_target_dependencies(add_two_ints_client_no_oop rclcpp tutorial_interfaces)
 
 add_executable(add_two_ints_client_oop src/add_two_ints_client_oop.cpp)
 ament_target_dependencies(add_two_ints_client_oop rclcpp example_interfaces)
